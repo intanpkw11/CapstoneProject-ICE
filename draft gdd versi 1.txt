@@ -1,0 +1,51 @@
+story flow
+prolog-gameplay tutorial (fix menang)+cutscene (seolah kalah, tuyul didapatkan warga, dukun kabur, dukun membuat tuyul baru)
+rumah 1(flow-mudah)-gameplay+cutscene (terdapat pencurian, flow berubah ke menengah) 
+rumah 2(flow-menengah)-gameplay
+rumah 3(flow-menengah)-gameplay (fix kalah)+cutscene (tuyul didapatkan warga, dukun kabur, dukun membuat tuyul baru) +credit roll+kembali ke title screen
+
+gameplay
+sekali jalan, belum ada loop
+sederhana: masuk ke rumah warga, mengambil uang, kembali ke dukun
+kompleks: diberikan alamat rumah untuk diambil uangnya oleh dukun, tuyul kemudian pergi keluar untuk mengambil uang berdasarkan alamat rumah yang diberikan, tuyul memasuki rumah, tuyul keliling untuk mencari uang-uang, tuyul menghindari deteksi atau tangkapan dari musuh-musuh, setelah selesai atau target dipenuhi tuyul kemudian kabur dari rumah, tuyul kemudian kembali ke rumah dukun dengan menghindari tuyul-tuyul lain yang mencoba mencuri hasil pencurian tuyul pemain
+apabila menang=lanjut ke babak (rumah) selanjutnya
+apabila kalah=layar game over dan kembali ke title screen
+
+karakter dan pergerakan
+tuyul/pemain-standar (atas, bawah, kiri, kanan)+interaksi dengan objek (tombol aksi), range pandangan standar, kecepatan gerak sedikit cepat (1.25 dari normal)
+tuyul/musuh-standar, range pandangan pendek (0.5 dari standar), kecepatan gerak sangat cepat (2 kali dari normal), pola gerak patroli titik sekitar penempatan, apabila deteksi tuyul pemain->lari mencoba menabrak tuyul pemain, hanya muncul setelah pemain keluar dari rumah
+musuh 1/anak kecil-standar, range pandangan sangat luas (2 kali dari standar), kecepatan gerak normal, pola gerak patroli titik penting, apabila deteksi tuyul->membangunkan musuh 2 (menangis ditempat), setelah menangis posisinya menjadi musuh 2, hanya terdapat dalam rumah
+musuh 2/dewasa-standar, range pandangan standar, kecepatan gerak normal, pola gerak patroli dan respon terhadap aksi 1 (tuyul mendorong), apabila deteksi tuyul->mengejar hingga menangkap, apabila tuyul diluar jarak pandangan maka berhenti mengejar dan kembali ke area patroli, hanya terdapat dalam rumah
+musuh 3/remaja-standar, range pandangan agak luas (1.25 dari standar), kecepatan gerak cepat (1.5 dari normal), pola gerak patroli dan respon terhadap aksi 2 (tuyul mendorong dan setelah tuyul menghitung kacang), apabila deteksi tuyul->mengejar hingga menangkap, apabila tuyul diluar jarak pandangan maka berhenti mengejar dan menunggu sejenak kemudian kembali ke area patroli, hanya terdapat dalam rumah
+
+skill/kemampuan
+lari cepat=kalau menabrak musuh, bisa stun musuh
+mengendap=bisa jalan di range penglihatan musuh
+berubah bentuk menjadi objek=tidak bisa dideteksi
+menghitung=pasif, semakin tinggi level, semakin cepat sembuh dari stun
+
+item/barang
+kacang=harus dihitung tuyul, stun tuyul selama beberapa detik, setelah menghitung memicu suara marah (deteksi musuh 3)
+uang kertas=barang objektif
+objek yang bisa digerakkan=digerakkan tuyul untuk mencapai jangkauan tertentu
+
+objektif
+utama-ambil uang untuk target sebelum waktu berakhir (10 menit)
+
+mekanik tambahan
+bisa dorong objek buat jangkau objektif
+uang bisa dicuri tuyul
+->buat demo run, dapat cutscene dimarahi dukun karena tidak sesuai target
+->buat pengembangan, perlu ke rumah lain untuk mendapatkan target kembali
+
+peta rumah
+rumah 1-kecil
+rumah 2/3-kecil, lantai 2
+
+setting dan tempat
+perumahan, yang bisa diakses hanya 3 rumah, sisanya sebagai estetika perumahan
+rumah dukun
+
+perspektif
+Third Person Perspective (referensi Alien Shooter dengan modifikasi)
+terdapat esensi open world
